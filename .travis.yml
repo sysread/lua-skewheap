@@ -13,10 +13,11 @@ before_install:
   - pip install hererocks
   - hererocks env --$LUA -rlatest    # Use latest LuaRocks, install into 'env' directory.
   - source env/bin/activate          # Add directory with all installed binaries to PATH.
+  - luarocks --version
   - luarocks install penlight
 
 install:
   - luarocks make
 
 script:
-  - luarocks test
+  - if [ -z $(which luajit) ]; then lua test.lua; else luajit test.lua; fi
