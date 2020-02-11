@@ -1,5 +1,3 @@
-rockspec_format = "3.0"
-
 package = "skewheap"
 version = "scm-1"
 
@@ -14,10 +12,6 @@ description = {
 }
 
 dependencies = {
-}
-
-build_dependencies = {
-  "penlight >= 1.7.0-1",
 }
 
 build = {
