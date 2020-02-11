@@ -49,12 +49,11 @@ end
 
 function SkewHeap:take(...)
   local count = 1
+  local items = {}
 
   if select('#', ...) > 0 then
     count = select(1, ...)
   end
-
-  items = {}
 
   for _ = 1, count do
     if self.root then
