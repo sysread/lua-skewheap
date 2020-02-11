@@ -10,8 +10,8 @@ function Node(value, left, right)
 end
 
 local function merge(a, b)
-  if not a then return {table.unpack(b or {})} end
-  if not b then return {table.unpack(a or {})} end
+  if not a then return Node(table.unpack(b or {})) end
+  if not b then return Node(table.unpack(a or {})) end
   if b[VALUE] < a[VALUE] then return merge(b, a) end
   return Node(a[VALUE], merge(b, a[RIGHT]), a[LEFT])
 end
