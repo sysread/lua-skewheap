@@ -1,19 +1,24 @@
 --------------------------------------------------------------------------------
 -- Node class (internal)
 --------------------------------------------------------------------------------
-VALUE = 1
-LEFT  = 2
-RIGHT = 3
+local VALUE = 1
+local LEFT  = 2
+local RIGHT = 3
 
-function Node(value, left, right)
+local function Node(value, left, right)
   return {value, left, right}
 end
 
+local function copy_node(n)
+  return Node(table.unpack(n or {}))
+end
+
 local function merge(a, b)
-  if not a then return Node(table.unpack(b or {})) end
-  if not b then return Node(table.unpack(a or {})) end
-  if b[VALUE] < a[VALUE] then return merge(b, a) end
-  return Node(a[VALUE], merge(b, a[RIGHT]), a[LEFT])
+      if not a then return copy_node(b)
+  elseif not b then return copy_node(a)
+  elseif b[VALUE] < a[VALUE] then return merge(b, a)
+    else return Node(a[VALUE], merge(b, a[RIGHT]), a[LEFT])
+     end
 end
 
 --------------------------------------------------------------------------------
