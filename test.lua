@@ -8,6 +8,7 @@ local q = SkewHeap.new()
 is(q.root, nil)
 is(q:items(), 0)
 is(q:is_empty(), true)
+print("ok - initial state")
 
 -- insertion
 expected = 0
@@ -20,6 +21,7 @@ for i in shuffled.iterate do
   is(actual, expected)
   is(q:is_empty(), false)
 end
+print("ok - insertion")
 
 -- extraction
 for expected in ordered.iterate do
@@ -30,10 +32,12 @@ end
 
 is(q:items(), 0)
 is(q:is_empty(), true)
+print("ok - extraction")
 
 -- insert and extract multiple items at a time
 is(q:put(table.unpack(shuffled)), 20)
 is({q:take(20)}, ordered)
+print("ok - batch insertion and extraction")
 
 -- merging
 a = SkewHeap.new()
@@ -52,3 +56,4 @@ end
 
 is(a:items(), 10) -- a remains intact
 is(b:items(), 10) -- b remains intact
+print("ok - merging")

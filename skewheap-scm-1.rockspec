@@ -2,12 +2,12 @@ package = "skewheap"
 version = "scm-1"
 
 source = {
-  url = ""
+  url = "https://github.com/sysread/lua-skewheap"
 }
 
 description = {
   maintainer = "Jeff Ober <sysread@fastmail.fm>",
-  homepage = "",
+  homepage = "https://github.com/sysread/lua-skewheap",
   license = "MIT",
 }
 
