@@ -1,5 +1,5 @@
 package = "skewheap"
-version = "git-1"
+version = "1.0-1"
 
 source = {
   url = "https://github.com/sysread/lua-skewheap",
