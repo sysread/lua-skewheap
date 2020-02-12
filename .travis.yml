@@ -4,10 +4,15 @@ sudo: false
 
 env:
   - LUA="lua 5.1"
+    LUABIN="lua"
   - LUA="lua 5.2"
+    LUABIN="lua"
   - LUA="lua 5.3"
+    LUABIN="lua"
   - LUA="luajit 2.0"
+    LUABIN="luajit"
   - LUA="luajit 2.1"
+    LUABIN="luajit"
 
 before_install:
   - pip install hererocks
@@ -20,4 +25,5 @@ install:
   - luarocks make
 
 script:
-  - if [ -z $(which luajit) ]; then lua test.lua; else luajit test.lua; fi
+  #- if [ -z $(which luajit) ]; then lua test.lua; else luajit test.lua; fi
+  - $LUABIN test.lua
