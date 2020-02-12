@@ -4,21 +4,16 @@ sudo: false
 
 env:
   - LUA="lua 5.1"
-    LUABIN="lua"
   - LUA="lua 5.2"
-    LUABIN="lua"
   - LUA="lua 5.3"
-    LUABIN="lua"
   - LUA="luajit 2.0"
-    LUABIN="luajit"
   - LUA="luajit 2.1"
-    LUABIN="luajit"
 
 before_install:
   - pip install hererocks
   - hererocks env --$LUA -rlatest    # Use latest LuaRocks, install into 'env' directory.
   - source env/bin/activate          # Add directory with all installed binaries to PATH.
-  - $LUABIN -v
+  - lua -v
   - luarocks --version
   - luarocks install penlight
 
@@ -26,5 +21,4 @@ install:
   - luarocks make
 
 script:
-  #- if [ -z $(which luajit) ]; then lua test.lua; else luajit test.lua; fi
-  - $LUABIN test.lua
+  - lua test.lua
