@@ -2,7 +2,7 @@ package = "skewheap"
 version = "1.0-1"
 
 source = {
-  url = "https://github.com/sysread/lua-skewheap",
+  url = "git://github.com/sysread/lua-skewheap",
   tag = "v1.0"
 }
 
