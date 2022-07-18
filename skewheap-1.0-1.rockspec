@@ -1,3 +1,5 @@
+rockspec_format = "3.0"
+
 package = "skewheap"
 version = "1.0-1"
 
@@ -15,6 +17,10 @@ description = {
 
 dependencies = {
   "lua >= 5.1, < 5.4"
+}
+
+build_dependencies = {
+  "penlight"
 }
 
 build = {
